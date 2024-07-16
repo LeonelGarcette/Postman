@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "abe6f0b4-0ab7-4796-954c-1e6a492e6759",
+		"name": "Petstore API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34293005"
+	},
+	"item": [
+		{
+			"name": "Add new pet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains the word 'disponible'\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"disponible\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 4,\r\n  \"category\": {\r\n    \"id\": 4,\r\n    \"name\": \"Lola\"\r\n  },\r\n  \"name\": \"Lola\",\r\n  \"tags\": [\r\n    {\r\n      \"id\": 4,\r\n      \"name\": \"Lola\"\r\n    }\r\n  ],\r\n  \"status\": \"disponible\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/v2/pet",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v2",
+						"pet"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://petstore.swagger.io/v2/pet' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"id\": 4,\r\n  \"category\": {\r\n    \"id\": 4,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"doggie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Find pet by status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/v2/pet/findByStatus?status={{status}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v2",
+						"pet",
+						"findByStatus"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "{{status}}"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X 'GET' \\\r\n  'https://petstore.swagger.io/v2/pet/findByStatus?status=available' \\\r\n  -H 'accept: application/json'"
+			},
+			"response": []
+		},
+		{
+			"name": "Pet not available",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response contains the word 'no disponible'\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"no disponible\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 4,\r\n  \"category\": {\r\n    \"id\": 4,\r\n    \"name\": \"Lola\"\r\n  },\r\n  \"name\": \"Lola\",\r\n    \"tags\": [\r\n    {\r\n      \"id\": 4,\r\n      \"name\": \"Lola\"\r\n    }\r\n  ],\r\n  \"status\": \"no disponible\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/v2/pet",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v2",
+						"pet"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'PUT' \\\r\n  'https://petstore.swagger.io/v2/pet' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"id\": 4,\r\n  \"category\": {\r\n    \"id\": 4,\r\n    \"name\": \"Lola\"\r\n  },\r\n  \"name\": \"Lola\",\r\n    \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"Lola\"\r\n    }\r\n  ],\r\n  \"status\": \"not available\"\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete pet",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.variables.get(\"petID\");\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/v2/pet/{{petID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v2",
+						"pet",
+						"{{petID}}"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'DELETE' \\\r\n  'https://petstore.swagger.io/v2/pet/4' \\\r\n  -H 'accept: application/json'"
+			},
+			"response": []
+		}
+	]
+}
