@@ -1,0 +1,33 @@
+{
+	"id": "a04eb0d6-1d5d-481b-a946-ab2333c70aac",
+	"name": "ECommerce Environment",
+	"values": [
+		{
+			"key": "baseURL",
+			"value": "https://petstore.swagger.io",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "petID",
+			"value": "4",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "status1",
+			"value": "disponible",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "status2",
+			"value": "no disponible",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2024-07-16T21:24:01.817Z",
+	"_postman_exported_using": "Postman/11.4.0"
+}
